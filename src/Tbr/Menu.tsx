@@ -1,65 +1,18 @@
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import { styled, alpha } from '@mui/material/styles';
-import SearchIcon from '@mui/icons-material/Search';
-import { InputBase } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
 
 const pages = ['Home', 'Reviews', 'Teknoy Books', 'About Us'];
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.50),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.60),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(150),
-    width: 'auto',
-    display: 'flex',
-    alignItems: 'center',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(2, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '30ch',
-      },
-    },
-  },
-}));
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -81,7 +34,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'orange'}}>
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -93,9 +46,8 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'roboto',
-              fontWeight: 600,
-              fontSize: 50,
-              letterSpacing: '.2rem',
+              fontWeight: 500,
+              letterSpacing: '.4rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -112,16 +64,57 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color='inherit'
             >
+              <MenuIcon />
             </IconButton>
-            
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
-          
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            TEKNOY ARCHIVES
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ marginLeft: 10, my: 5, color: 'white', display: 'flex' }}
+                sx={{ marginLeft: 10, my: 5, color: 'white', display: 'block' }}
               >
                 {page}
               </Button>
@@ -154,43 +147,8 @@ function ResponsiveAppBar() {
           </Box>
         </Toolbar>
       </Container>
-
-      <Box sx={{ flexGrow: 2 }}>
-        <Search>
-        <SearchIconWrapper>
-          <SearchIcon />
-          </SearchIconWrapper>
-      <StyledInputBase
-      placeholder="Search"
-      inputProps={{ 'aria-label': 'search' }}
-      />
-      </Search>
-      </Box>
     </AppBar>
   );
 }
-// export default ResponsiveAppBar;
 
-export default function CreateBook(){
-    return (
-    <Box
-      component="form"
-      sx={{'& > :not(style)': { m: 1, width: '25ch'}}}
-      noValidate
-      autoComplete="off"
-    >
-        Enter Book Title
-        <TextField id="outlined-basic" label="Enter Book TItle" variant="outlined" color='success'/>
-        <TextField id="outlined-basic" variant="outlined" color='success' /> <br></br>
-        Enter Author
-        <TextField id="outlined-basic" label="Enter Author" variant="outlined" color='success'/> <br></br>
-        Enter Published Date
-        <TextField id="outlined-basic" label="Enter Published Date" variant="outlined" color='success'/> <br></br>
-        Enter Genre
-        <TextField id="outlined-basic" label="Enter Genre" variant="outlined" color='success'/> <br></br>
-        Enter Synopsis
-        <TextField id="outlined-basic" label="Enter Synopsis" variant="outlined" color='success'/> <br></br>
-        <Button variant="contained">Add Book</Button> 
-        </Box>
-    )
-}
+export default ResponsiveAppBar;
