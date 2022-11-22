@@ -13,7 +13,7 @@ import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputBase } from '@mui/material';
 
-const pages = ['Home', 'Reviews', 'Teknoy Books'];
+const pages = ['Home', 'Reviews', 'Teknoy Books', 'About Us'];
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',

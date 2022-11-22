@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Button } from '@mui/material';
 import ReviewPage from './Review/NavBar';
 import NavBar from './Review/NavBar';
+import TbrList from './Tbr/TbrList';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <header className="App-header">
       <NavBar/>
       </header>
+      <TbrList/>
       <ReviewPage/>
     </div>
   );
