@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-export default function ReviewPage() {
-    return (
-        <>
-           
-        </>
-    )
-=======
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -65,5 +57,4 @@ export default function BasicTable() {
       </Table>
     </TableContainer>
   );
->>>>>>> ce3a7d6419f790d5e14046c115818134f8f586c1
 }

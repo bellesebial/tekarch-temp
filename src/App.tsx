@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import './App.css';
-
-function App(){
-  return (
-    <div className="App">
-      <header className="App-header">
-
-      </header>
-    </div>
-  )
-}
-
-export default App;
-=======
 import React from 'react';
 import './App.css';
 import { Button } from '@mui/material';
@@ -35,4 +20,3 @@ function App() {
 
 
 export default App;
->>>>>>> ce3a7d6419f790d5e14046c115818134f8f586c1
