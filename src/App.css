@@ -3,11 +3,11 @@
 }
 
 .App-header {
-  background-image: "background.jpg";
+  background-image: "bC:\Users\Eloisa Marie D\Documents\GitHub\tekarch-temp\public\background.jpgackground.jpg";
   min-height: 100vh;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(20px + 2vmin);
-  color: rgb(253, 248, 248);
+  color: rgb(145, 141, 141);
 }

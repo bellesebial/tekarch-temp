@@ -10,11 +10,19 @@ export default function UpdateBook(){
       noValidate
       autoComplete="off"
     >
+        Enter Book Title
+        <TextField id="outlined-basic" label="Enter Book TItle" variant="outlined" color='success'/>
         <TextField id="outlined-basic" label="Enter Book TItle" variant="outlined" color='success'/> <br></br>
+        Enter Author
         <TextField id="outlined-basic" label="Enter Author" variant="outlined" color='success'/> <br></br>
+        Enter Published Date
+        <TextField id="outlined-basic" label="Enter Published Date" variant="outlined" color='success'/> <br></br>
+        Enter Genre
         <TextField id="outlined-basic" label="Enter Genre" variant="outlined" color='success'/> <br></br>
+        Enter Synopsis
         <TextField id="outlined-basic" label="Enter Synopsis" variant="outlined" color='success'/> <br></br>
-        <Button variant="contained">Add Book</Button> 
+        <Button variant="contained">Update Book</Button> 
+        <Button variant="contained">Cancel</Button> 
         </Box>
     )
 }
