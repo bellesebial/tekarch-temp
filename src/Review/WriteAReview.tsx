@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Box, Breadcrumbs, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from '@mui/material';
+import { Box, Breadcrumbs, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Stack, TextField, Typography } from '@mui/material';
 import Link from '@mui/material/Link';
 
 export interface createReview{
@@ -56,9 +56,10 @@ export default function ReviewPage(props:createReview) {
               </Box>
           </Card></>
           <Typography variant="h5" sx={{display:'left', alignItems:'left'}}>What did you think?</Typography>
-          <Box component="span" sx={{ p: 20, border: '1px dashed black' }}>
-          </Box>
+          <TextField variant="outlined" multiline rows={10} sx={{width:500}}/>
+          <Stack spacing={2} direction="row" sx={{marginLeft:60}}>
           <Button variant="contained" sx={{backgroundColor:'orange'}}>POST</Button>
+          </Stack>
 </>
   );
 }
