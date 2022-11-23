@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useRef, useState } from 'react';
+import { Breadcrumbs, Link } from '@mui/material';
 
 const update: CSS.Properties = {
     float: 'left',
@@ -19,8 +20,22 @@ const link: CSS.Properties = {
     alignItems: 'left'
 }
 
+function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    event.preventDefault();
+    console.info('You clicked a breadcrumb.');
+  }
+
 export default function UpdateBook(){
     return (
+        <div role="presentation" onClick={handleClick}>
+            <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
+              <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/TeknoyArchive/Update">
+                  Teknoy Archives
+              </Link>
+              <Link color="orange" fontSize={25} fontWeight={10} underline="hover" href="/">
+                  Update Review
+              </Link>
+          </Breadcrumbs> 
     <div>
         <div className="update" style={update}>
             <Box
@@ -29,8 +44,6 @@ export default function UpdateBook(){
             noValidate
             autoComplete="off"
             >
-            <a href='' style={link}>Teknoy Books </a>
-            <a href='' style={link}>Update Book</a> <br></br>
             Enter Book Title
             <TextField id="outlined-basic" label="Enter Book TItle" variant="outlined" color='success'/><br></br>
             Enter Author
@@ -50,6 +63,8 @@ export default function UpdateBook(){
         </div>
 
     </div>
+    </div>
     )
+
 }
 // }
