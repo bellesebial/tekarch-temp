@@ -19,15 +19,22 @@ export interface CardDetails {
 }
 
 const rows: CardDetails[] = [
-  { cover: 'cover.jpg', title: 'The Imperfections of Memory', author: 'Angelina Aludo', synopsis: 'scscscsecscscs' }
+  { cover: 'cover.jpg', title: 'The Imperfections of Memory', author: 'Angelina Aludo', synopsis: 'scscscsecscscs' },
+  { cover: 'cover.jpg', title: 'The Imperfections of Memory', author: 'Angelina Aludo', synopsis: 'scscscsecscscs' },
+  { cover: 'cover.jpg', title: 'The Imperfections of Memory', author: 'Angelina Aludo', synopsis: 'scscscsecscscs' },
+  { cover: 'cover.jpg', title: 'The Imperfections of Memory', author: 'Angelina Aludo', synopsis: 'scscscsecscscs' },
+  { cover: 'cover.jpg', title: 'The Imperfections of Memory', author: 'Angelina Aludo', synopsis: 'scscscsecscscs' },
+  
 ]
 
 export default function MediaCard(props: CardDetails) {
   const theme = useTheme();
   return (
     <>
-      <Box sx={{ '& > :not(style)': { m: 1 } }}>
-          <Card sx={{ textAlign: 'left', width: 300, height: 350, marginLeft: 4, marginBottom: '2rem', marginTop: '2rem', backgroundColor: 'white', color: 'black' }}>
+          <Card sx={{ textAlign: 'left', width: 300, height: 350, 
+                      marginLeft: 4, marginRight: 4, marginBottom: '2rem', marginTop: '2rem', 
+                      backgroundColor: 'white', color: 'black' }}>
+
             <CardMedia component="img" height="140" sx={{ height: 150 }} image={props.cover}/>
 
             <CardContent>
@@ -48,12 +55,11 @@ export default function MediaCard(props: CardDetails) {
               <Button size="small">Delete</Button>
             </CardActions>
           </Card>
-
+        {/* <div>
         <Fab size="large" color="primary" aria-label="add">
           <AddIcon />
         </Fab>
-      </Box>
-
+        </div> */}
     </>
   );
 }

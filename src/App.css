@@ -1,28 +1,14 @@
 .App {
   text-align: center;
-  /* align-items: center;
-  display:absolute; */
-
 }
 
 .App-header {
-  /* background-image: "bC:\Users\Eloisa Marie D\Documents\GitHub\tekarch-temp\public\background.jpgackground.jpg"; */
+  background-color: #ffffff;
   min-height: 100vh;
-  /* display: flex; */
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(20px + 2vmin);
   color: rgb(145, 141, 141);
 }
-/* .card{
-  align-items: center;
-  position: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.wrapper{
-  align-items: center;
-  display: absolute;
-  position: center;
-} */

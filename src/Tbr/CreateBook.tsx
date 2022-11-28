@@ -57,7 +57,7 @@ export default function CreateBook(){
             Enter Synopsis
             <TextField id="outlined-basic" label="Enter Synopsis" variant="outlined" color='success'/> <br></br>
             </Box>
-            <Button variant="contained">Add Book</Button> 
+            <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Add Book</Button> 
             </div>
 
     </div>

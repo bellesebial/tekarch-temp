@@ -58,8 +58,8 @@ export default function UpdateBook(){
             Enter Synopsis
             <TextField id="outlined-basic" label="Enter Synopsis" variant="outlined" color='success'/> <br></br>
             </Box>
-            <Button variant="contained">Update Book</Button> 
-            <Button variant="contained">Cancel</Button> 
+            <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Update Book</Button>
+            <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Cancel</Button> 
         </div>
 
     </div>
