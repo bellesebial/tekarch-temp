@@ -1,12 +1,7 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { Box, Breadcrumbs, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Stack, TextField, Typography } from '@mui/material';
+import { Box, Breadcrumbs, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, Rating, Stack, styled, TextField, Typography } from '@mui/material';
 import Link from '@mui/material/Link';
+import NavBar from './NavBar';
 
 export interface createReview{
   cover: string,
@@ -16,9 +11,14 @@ export interface createReview{
   review: string,
 }
 
-const rows: createReview[] = [
-  {cover:'images/uglylove.jpeg', title:'Ugly Love', author:'Colleen Hover', rating:3, review:'Nice book!'}
-]
+const rows: createReview[] = []
+
+const Item = styled(Typography) 
+({
+  textAlign: 'center',
+  fontSize: 20,
+  marginTop: '3rem'
+});
 
 function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     event.preventDefault();
@@ -26,10 +26,13 @@ function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   }
 
 export default function ReviewPage(props:createReview) {
+    const [value, setValue] = React.useState<number | null>(2);
   return (
+    <header>
+        <NavBar/>
     <><><div role="presentation" onClick={handleClick}>
           <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
-              <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/Review/ReviewPage">
+              <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/Review/ReviewPage.tsx">
                   User Review
               </Link>
               <Link color="orange" fontSize={25} fontWeight={10} underline="hover" href="/">
@@ -38,14 +41,16 @@ export default function ReviewPage(props:createReview) {
           </Breadcrumbs>
       </div>
 
-          <Card sx={{ textAlign: 'center', width: 200, marginLeft: 4, marginBottom: '1rem', marginTop: '1rem', backgroundColor: 'white', color: 'black' }}>
+      </><Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 4, md: 3 }}>
+              <Grid item xs={5}>
+                  <Card sx={{ textAlign: 'center', width: 200, marginLeft: 4, marginBottom: '1rem', marginTop: '2rem', backgroundColor: 'white', color: 'black' }}>
               <Box>
                   <CardMedia component="img" height="250" sx={{ width: 200 }}
                       image={props.cover}
                       alt="book cover" />
               </Box>
-              <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                  <CardContent sx={{ flex: '1 0 auto' }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+                  <CardContent sx={{ flex: '1 auto' }}>
                       <Typography component="div" variant="h5">
                           {props.title}
                       </Typography>
@@ -53,13 +58,31 @@ export default function ReviewPage(props:createReview) {
                           {props.author}
                       </Typography>
                   </CardContent>
+
               </Box>
-          </Card></>
-          <Typography variant="h5" sx={{display:'left', alignItems:'left'}}>What did you think?</Typography>
-          <TextField variant="outlined" multiline rows={10} sx={{width:500}}/>
-          <Stack spacing={2} direction="row" sx={{marginLeft:60}}>
-          <Button variant="contained" sx={{backgroundColor:'orange'}}>POST</Button>
-          </Stack>
-</>
+          </Card>
+          <Typography sx={{ display: 'center', marginLeft: 4, alignItems: 'center', fontSize: 20}}>Rating:
+          &nbsp;
+          <Rating sx={{alignItems: 'center', display: 'left'}}
+             name="simple-controlled"
+             value={props.rating}
+            onChange={(event, newValue) => {
+            setValue(newValue);
+             }} />
+          </Typography>
+              </Grid>
+              <Grid item xs={2}>
+                  <Item>
+                  <Typography sx={{ display: 'center', alignContent: 'left'}}>What did you think?</Typography>
+          <Box sx={{ display: 'left', flexDirection: 'row' }}>
+              <TextField variant="outlined" multiline rows={9} sx={{ width: 600 }} />
+          </Box>
+          <Stack spacing={2} direction="row" sx={{marginTop:'1rem'}}>
+              <Button variant="contained" sx={{ backgroundColor: 'orange' }}>POST</Button>
+          </Stack>   
+                </Item>
+              </Grid>
+          </Grid></>
+          </header>
   );
 }
