@@ -43,7 +43,7 @@ export default function ReviewPage(props:createReview) {
 
       </><Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 4, md: 3 }}>
               <Grid item xs={5}>
-                  <Card sx={{ textAlign: 'center', width: 200, marginLeft: 4, marginBottom: '1rem', marginTop: '2rem', backgroundColor: 'white', color: 'black' }}>
+                  <Card sx={{ textAlign: 'center', width: 200, marginLeft: 7, marginBottom: '1rem', marginTop: '2rem', backgroundColor: 'white', color: 'black' }}>
               <Box>
                   <CardMedia component="img" height="250" sx={{ width: 200 }}
                       image={props.cover}
@@ -61,7 +61,7 @@ export default function ReviewPage(props:createReview) {
 
               </Box>
           </Card>
-          <Typography sx={{ display: 'center', marginLeft: 4, alignItems: 'center', fontSize: 20}}>Rating:
+          <Typography sx={{ display: 'center', marginLeft: 7, alignItems: 'center', fontSize: 20}}>Rating:
           &nbsp;
           <Rating sx={{alignItems: 'center', display: 'left'}}
              name="simple-controlled"

@@ -13,7 +13,7 @@ import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputBase } from '@mui/material';
 
-const pages = ['Home', 'Reviews', 'Teknoy Books', 'About Us'];
+const pages = ['Home', 'Reviews', 'Teknoy Books'];
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -90,9 +90,9 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'flex' },
-              fontFamily: 'roboto',
               fontWeight: 600,
               fontSize: 50,
+              fontFamily: 'roboto',
               letterSpacing: '.2rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -119,7 +119,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ marginLeft: 10, my: 5, color: 'white', display: 'flex' }}
+                sx={{ marginLeft: 14, my: 3.5, color: 'white', display: 'flex', fontSize: 15 }}
               >
                 {page}
               </Button>
@@ -128,7 +128,7 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Profile">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 2}}>
                 <Avatar alt="User" src="user.jpg" />
               </IconButton>
             </Tooltip>
